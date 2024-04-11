@@ -1,12 +1,16 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
         System.err.println("Questão 2");
         fibonacci(0, 1, 30);
 
-        System.err.println("Questão 3");
+        System.err.println("\nQuestão 3");
         grade(5);
+
+        System.out.println("\nQuestão 4");
+        numbers();
     }
 
     //valores da questão               0               1               30
@@ -59,4 +63,29 @@ public class App {
         System.out.printf("Media: %f \nNotas maiores que a media: %d \nNotas menores que a media: %d", averageGrade, biggerNotes, minorNotes);
     }
 
+    public static void numbers (){
+        ArrayList<Integer> arrayNumbers = new ArrayList();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um numero: ");
+        int number = scanner.nextInt();
+        scanner.nextLine();
+        
+        while (number >= 0) {
+            arrayNumbers.add(number);
+            System.out.print("Digite um numero: ");
+            number = scanner.nextInt();
+            scanner.nextLine();
+        } 
+
+        int length = arrayNumbers.size();
+        float average = 0;
+
+        //incrementado a media a partir dos numeros
+        for (int k = 0; k < length; k++) {
+            average += (float) arrayNumbers.get(k)/ (float)length;
+        }
+        
+        System.out.printf("Quantidade de numeros: %d \nMedia: %.2f \n", length, average);
+    }
 }
